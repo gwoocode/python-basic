@@ -1,7 +1,7 @@
 import sys
 import os
 import time
-from src.auth import signup, login
+from src.auth import signup, login, resetPassword
 from src.utils import clearConsole
 
 def main():
@@ -16,7 +16,8 @@ def main():
             print("└───────────────────────────────────┘")
             print("  [1] 로그인")
             print("  [2] 회원가입")
-            print("  [3] 프로그램 종료")
+            print("  [3] 비밀번호 찾기")
+            print("  [4] 프로그램 종료")
             print("─────────────────────────────────────")
             
             choice = input(" 선택 > ")
@@ -25,6 +26,11 @@ def main():
             elif choice == "2":
                 signup()
             elif choice == "3":
+                resetPassword()
+            elif choice == "4":
+                print("\n 프로그램을 종료합니다.")
+                time.sleep(1)
+                clearConsole()
                 sys.exit()
 
         else:
@@ -38,12 +44,14 @@ def main():
             
             game_choice = input(" 선택 > ")
             if game_choice == "1":
-                print("\n [완료] 로그아웃되었습니다.")
+                print("\n 로그아웃되었습니다.")
                 current_user = None
                 time.sleep(1)
 
             elif game_choice == "2":
-                print("\n [완료] 프로그램을 종료합니다.")
+                print("\n 프로그램을 종료합니다.")
+                time.sleep(1)
+                clearConsole()
                 sys.exit()
 if __name__ == "__main__":
     main()
