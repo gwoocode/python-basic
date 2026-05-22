@@ -11,3 +11,11 @@ def loadUser():
 def saveUser(userList):
     with open("users.txt", "w") as f:
         f.write(json.dumps(userList))
+
+def saveUserInfo(userInfo):
+    userList = loadUser()
+    for i, user in enumerate(userList):
+        if user["name"] == userInfo["name"]:
+            userList[i] = userInfo
+            break
+    saveUser(userList)
