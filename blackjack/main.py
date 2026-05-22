@@ -38,7 +38,7 @@ def main():
         else:
             print("┌───────────────────────────────────┐")
             print(f"  ID   > {current_user['name'].upper()}")
-            print(f"  COIN > {current_user['coin']:,} 🪙")
+            print(f"  COIN > {current_user['coin']:,}")
             print("└───────────────────────────────────┘")
             print("  [1] 게임하기")
             print("  [2] 로그아웃")
