@@ -5,6 +5,7 @@ from src.auth import signup, login, resetPassword
 from src.utils import clearConsole
 from src.database import loadUser
 from game.blackjack import play_blackjack
+from game.ranking import showMyStats, showRanking
 
 def main():
     current_user = None
@@ -41,8 +42,10 @@ def main():
             print(f"  COIN > {current_user['coin']:,}")
             print("└───────────────────────────────────┘")
             print("  [1] 게임하기")
-            print("  [2] 로그아웃")
-            print("  [3] 프로그램 종료")
+            print("  [2] 전적보기")
+            print("  [2] 랭킹보기")
+            print("  [3] 로그아웃")
+            print("  [4] 프로그램 종료")
             print("─────────────────────────────────────")
             
             game_choice = input(" 선택 > ")
@@ -54,13 +57,16 @@ def main():
                     if u["name"] == current_user["name"]:
                         current_user = u
                         break
-
             if game_choice == "2":
+                showMyStats(current_user)
+            if game_choice == "3":
+                showRanking()
+            if game_choice == "4":
                 print("\n 로그아웃되었습니다.")
                 current_user = None
                 time.sleep(1)
 
-            elif game_choice == "3":
+            elif game_choice == "5":
                 print("\n 프로그램을 종료합니다.")
                 time.sleep(1)
                 clearConsole()

@@ -14,7 +14,10 @@ def createUser(userName, userPass, questionIdx, securityHint):
         "security_hint": hashed_hint,
         "coin": 1000,
         "locked": False,
-        "fail_count": 0
+        "fail_count": 0,
+        "win": 0,
+        "draw": 0,
+        "loss": 0
     }
     
     userList.append(newUser)

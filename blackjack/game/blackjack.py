@@ -135,17 +135,22 @@ def play_blackjack(userInfo):
     if player > 21:
         print(f" [ 패배 ] {player}, 버스트 (-{bet:,})")
         userInfo["coin"] -= bet
+        userInfo["loss"] += 1
     elif dealer > 21:
         print(f" [ 승리 ] {dealer}, 버스트 (+{bet:,})")
         userInfo["coin"] += bet
+        userInfo["win"] += 1
     elif player > dealer:
         print(f" [ 승리 ] +{bet:,}")
         userInfo["coin"] += bet
+        userInfo["win"] += 1
     elif player < dealer:
         print(f" [ 패배 ] -{bet:,}")
         userInfo["coin"] -= bet
+        userInfo["loss"] += 1
     else:
         print(" [ 무승부 ]")
+        userInfo["draw"] += 1
 
     saveUserInfo(userInfo)
     print(f" [ 잔액 ] {userInfo['coin']:,}")
